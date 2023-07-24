@@ -1,10 +1,11 @@
-import { Column, Model, Table, DataType } from 'sequelize-typescript';
+import { Column, Model, Table, DataType, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
+import { UserInfo } from './user-info.model';
 
 @Table({ timestamps: false, underscored: true })
 export class User extends Model {
   @Column({
-    type: DataType.UUIDV4,
+    type: DataType.UUID,
     defaultValue: () => uuidv4(),
     primaryKey: true,
     allowNull: false,
@@ -17,10 +18,6 @@ export class User extends Model {
   email: string;
   @Column({ allowNull: false })
   passwordHash: string;
-  @Column({ allowNull: false })
-  phone: string;
-  @Column({ allowNull: false })
-  fullName: string
   @Column({ type: DataType.DATE })
   dateRegistered: Date;
   @Column({ type: DataType.DATE })
@@ -29,6 +26,10 @@ export class User extends Model {
   isActive: boolean;
   @Column({ defaultValue: false })
   blocked: boolean;
+  @Column
+  qty_fail: number;
+  @HasMany(() => UserInfo)
+  userInfos: UserInfo[]
   @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
   created: Date
   @Column({ type: DataType.BOOLEAN, defaultValue: false })

@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UsersService {
-  private readonly posts = [];
+  constructor(private readonly userRepository: UserRepository) { }
 
-  create(post) {
-    this.posts.push(post);
+  signin(username: string) {
+
   }
 
   findAll() {
-    return this.posts;
+    return
   }
 }

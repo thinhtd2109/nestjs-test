@@ -4,20 +4,38 @@
     "password": "lZYL7PBvD9fg",
     "database": "example-test",
     "host": "ep-old-snowflake-877762-pooler.ap-southeast-1.aws.neon.tech",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "thinhtd2109",
+    "password": "lZYL7PBvD9fg",
+    "database": "example-test",
+    "host": "ep-old-snowflake-877762-pooler.ap-southeast-1.aws.neon.tech",
+    "dialect": "postgres",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "thinhtd2109",
+    "password": "lZYL7PBvD9fg",
+    "database": "example-test",
+    "host": "ep-old-snowflake-877762-pooler.ap-southeast-1.aws.neon.tech",
+    "dialect": "postgres",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
