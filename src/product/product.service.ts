@@ -4,16 +4,22 @@ import { ProductRepository } from './product.repository';
 import sequelize from 'src/core/database/database.root';
 import { CategoryRepository } from 'src/services/category.repository';
 import { BrandRepository } from 'src/services/brand.repository';
-import { validateMasterDataInsertProduct } from 'src/core/validate/product.validate';
+import { validateCommentProduct, validateMasterDataInsertProduct } from 'src/core/validate/product.validate';
 import Category from 'src/models/master/category.model';
 import Brand from 'src/models/master/brand.model';
+import { CommentInputDto } from 'dto/comments/comment.dto';
+import { UserRepository } from 'src/users/user.repository';
+import { CommentRepository } from 'src/services/comment.repository';
+import { isEmpty } from 'src/core/helper/user.helper';
 
 @Injectable()
 export class ProductService {
   constructor(
     private readonly productRepository: ProductRepository,
     private readonly categoryRepository: CategoryRepository,
-    private readonly brandRepository: BrandRepository
+    private readonly brandRepository: BrandRepository,
+    private readonly userRepository: UserRepository,
+    private readonly commentRepository: CommentRepository
   ) { }
 
   generateDto(data: ProductInputDto, category: Category, brand: Brand): ProductInsertDto {
@@ -51,5 +57,39 @@ export class ProductService {
       throw error;
     }
 
+  }
+
+  async getProductByCode(code: string) {
+    return await this.productRepository.getProductBy({ code });
+  }
+
+  async commentProduct(data: CommentInputDto) {
+    let result;
+    const transaction = await sequelize.transaction();
+    const product = await this.productRepository.getProductBy({ code: data.product_code });
+    const user = await this.userRepository.getUserById(data.user_id);
+    const validated = validateCommentProduct({ product, user });
+    if (!validated.status) {
+      return validated;
+    }
+
+    try {
+      if (!isEmpty(data.reply_comment)) {
+        result = await this.commentRepository.insertReplyComment(data, transaction);
+        await transaction.commit();
+      } else {
+        result = await this.commentRepository.insertComment({ user_id: user.id, comment_text: data.comment_text, product_id: product.id }, transaction);
+        await transaction.commit();
+      }
+
+      return {
+        status: true,
+        data: result,
+        error: null
+      }
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
+    }
   }
 }

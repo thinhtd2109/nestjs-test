@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
 import { ProductValidateMiddleware } from './middleware/product.middleware';
+import { CommentValidateMiddleware } from './middleware/comment.middleware';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -28,5 +29,7 @@ export class AppModule {
     consumer
       .apply(ProductValidateMiddleware)
       .forRoutes({ path: 'product/insert', method: RequestMethod.POST })
+      .apply(CommentValidateMiddleware)
+      .forRoutes({ path: 'product/comment', method: RequestMethod.POST })
   }
 }

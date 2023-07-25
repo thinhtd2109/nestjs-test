@@ -7,6 +7,9 @@ import { User } from "src/models/users/user.model";
 @Injectable()
 export class UserRepository {
     constructor() { }
+    async getUserById(id: string): Promise<User> {
+        return await User.findByPk(id)
+    }
     async findByUserName(userName: string): Promise<User> {
         return await User.findOne({ where: { userName: userName } });
     }

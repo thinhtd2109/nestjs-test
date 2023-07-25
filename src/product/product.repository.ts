@@ -1,8 +1,10 @@
 import { Injectable } from "@nestjs/common";
-import { ProductFilterDto, ProductInputDto, ProductInsertDto } from "dto/products/product.dto";
+import { ProductFilterDto, ProductInsertDto } from "dto/products/product.dto";
 import { Transaction } from "sequelize";
-import { Table } from "sequelize-typescript";
 import { isEmpty } from "src/core/helper/user.helper";
+import Comment from "src/models/comments/comment.model";
+import ProductComment from "src/models/comments/product-comment.model";
+import Reply from "src/models/comments/reply.model";
 import Product from "src/models/products/product.model";
 
 @Injectable()
@@ -17,7 +19,17 @@ export class ProductRepository {
     }
     async getProductBy(data: ProductFilterDto): Promise<Product> {
         const where = this.buildConditionProduct(data);
-        return await Product.findOne({ where: where });
+        return await Product.findOne({
+            where: where, include: [{
+                model: ProductComment,
+                include: [{
+                    model: Comment,
+                    include: [{
+                        model: Reply
+                    }]
+                }]
+            }]
+        });
     }
 
     async upsertProduct(data: ProductInsertDto, transaction: Transaction) {
