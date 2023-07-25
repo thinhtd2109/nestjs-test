@@ -3,6 +3,12 @@ import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { databaseConfig } from './database.config';
 import { User } from 'src/models/users/user.model';
 import { UserInfo } from 'src/models/users/user-info.model';
+import Comment from 'src/models/comments/comment.model';
+import { Product } from 'src/models/products/product.model';
+import ProductComment from 'src/models/comments/product-comment.model';
+import Brand from 'src/models/master/brand.model';
+import Category from 'src/models/master/category.model';
+import Reply from 'src/models/comments/reply.model';
 
 export const databaseProviders = [{
   provide: SEQUELIZE,
@@ -22,7 +28,7 @@ export const databaseProviders = [{
         config = databaseConfig.development;
     }
     const sequelize = new Sequelize(config);
-    sequelize.addModels([User, UserInfo]);
+    sequelize.addModels([User, UserInfo, Comment, Product, ProductComment, Brand, Category, Reply]);
     await sequelize.sync();
     return sequelize;
   },
