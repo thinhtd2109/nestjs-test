@@ -16,6 +16,6 @@ export class CommentRepository {
     }
 
     async insertReplyComment(data: CommentInsertDto, transaction: Transaction) {
-        return await Reply.create({ commentText: data.comment_text, commentId: data.reply_comment }, { transaction })
+        return await Reply.create({ commentText: data.comment_text, commentId: data.reply_comment, createdBy: data.user_id }, { transaction })
     }
 }

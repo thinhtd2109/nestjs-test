@@ -6,6 +6,8 @@ import Comment from "src/models/comments/comment.model";
 import ProductComment from "src/models/comments/product-comment.model";
 import Reply from "src/models/comments/reply.model";
 import Product from "src/models/products/product.model";
+import { UserInfo } from "src/models/users/user-info.model";
+import { User } from "src/models/users/user.model";
 
 @Injectable()
 export class ProductRepository {
@@ -24,9 +26,23 @@ export class ProductRepository {
                 model: ProductComment,
                 include: [{
                     model: Comment,
-                    include: [{
-                        model: Reply
-                    }]
+                    include: [
+                        {
+                            model: User,
+                            include: [{
+                                model: UserInfo
+                            }]
+                        },
+                        {
+                            model: Reply,
+                            include: [{
+                                model: User,
+                                include: [{
+                                    model: UserInfo
+                                }]
+                            }]
+                        }
+                    ]
                 }]
             }]
         });

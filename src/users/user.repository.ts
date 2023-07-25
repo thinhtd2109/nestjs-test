@@ -43,7 +43,7 @@ export class UserRepository {
     async createUserInfo(userId: string, userInfo: SignUpUserInfoDto, transaction: Transaction) {
         return await UserInfo.create({
             birthDay: userInfo.birth_day,
-            user: userId,
+            userId: userId,
             fullName: userInfo.full_name,
             phone: userInfo.phone
         }, { transaction });
