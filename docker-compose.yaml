@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nestjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres-db
+    environment:
+      DATABASE_URL: postgres://user:password@postgres-db:5432/mydb
+
+  postgres-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
