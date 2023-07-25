@@ -5,7 +5,7 @@ import Category from '../master/category.model';
 import ProductComment from '../comments/product-comment.model';
 
 @Table({ timestamps: false, underscored: true })
-export class Product extends Model {
+class Product extends Model {
   @Column({
     type: DataType.UUID,
     defaultValue: () => uuidv4(),
@@ -62,3 +62,5 @@ export class Product extends Model {
   @Column({ type: DataType.UUID })
   deletedBy: string;
 }
+
+export default Product

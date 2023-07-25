@@ -1,6 +1,8 @@
+import { isEmpty } from "../helper/user.helper"
+
 export const validateBody = (data, object: Object) => {
-  for (const property in data) {
-    if (!data[property]) {
+  for (const property in object) {
+    if (isEmpty(data[property])) {
       return {
         status: false,
         error: object[property],
