@@ -7,7 +7,7 @@ import * as  _ from 'lodash';
 import { SignUpDto } from 'dto/user.dto';
 import sequelize from 'src/core/database/database.root';
 
-import { validateSignIn, validateSignUp } from 'src/core/helper/user.helper';
+import { validateSignIn, validateSignUp } from 'src/core/validate/user.validate';
 
 @Injectable()
 export class AuthService {

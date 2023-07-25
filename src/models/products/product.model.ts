@@ -2,7 +2,6 @@ import { Column, Model, Table, DataType, HasMany, ForeignKey, BelongsTo } from '
 import { v4 as uuidv4 } from 'uuid';
 import Brand from '../master/brand.model';
 import Category from '../master/category.model';
-import Comment from '../comments/comment.model';
 import ProductComment from '../comments/product-comment.model';
 
 @Table({ timestamps: false, underscored: true })
