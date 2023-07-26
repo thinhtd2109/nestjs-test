@@ -56,15 +56,21 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/auth/signin`
 - **Method:** `POST`
 
+**Request:**
+```json
+{
+  "username": "thinhtd",
+  "password": "123456"
+}
+```
+
 **Response:**
 ```json
-[
-    {
-        "username": "thinhtd",
-        "password": "123456"
-    }
-]
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiOWZhMjc4MjktMjFkZi00MDIwLTliMzYtZWM3NDNmNjVhMDFiIiwidXNlck5hbWUiOiJ0aGluaHRkMjEwOSIsImVtYWlsIjoidGhpbmh0ZDIxMDkxQGdtYWlsLmNvbSIsImRhdGVSZWdpc3RlcmVkIjpudWxsLCJsYXN0TG9naW4iOm51bGwsImlzQWN0aXZlIjp0cnVlLCJibG9ja2VkIjpmYWxzZSwicXR5X2ZhaWwiOjAsImNyZWF0ZWQiOiIyMDIzLTA3LTI2VDAzOjUwOjU4LjUwNFoiLCJkZWxldGVkIjpmYWxzZSwidXBkYXRlZCI6bnVsbCwiY3JlYXRlZEJ5IjpudWxsLCJ1cGRhdGVkQnkiOm51bGwsImRlbGV0ZWRCeSI6bnVsbH0sImlhdCI6MTY5MDM0MzU3NX0.uEGXiQZ4wu4DZhJ_DViAyWC12o6pNr_KA6hae1XkAG0"
+}
 ```
+
 ### 2. Đăng ký
 - **Endpoint:** `/auth/signup`
 - **Method:** `POST`
