@@ -500,6 +500,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 }
 ```
 
+**Headers**
+- `Authorization`: Bearer <Token>
+
 **Response**
 ```json
 {
@@ -545,6 +548,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Tên trường**: user_id
 - **Loại dữ liệu**: uuid
 - **Mô tả**: Mã người dùng
+
+**Headers**
+- `Authorization`: Bearer <Token>
 
 **Request**
 ```json 
@@ -601,6 +607,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Tên trường**: reply_comment
 - **Loại dữ liệu**: uuid
 - **Mô tả**: Trả lời bình luận
+
+**Headers**
+- `Authorization`: Bearer <Token>
 
 **Request**
 ```json
