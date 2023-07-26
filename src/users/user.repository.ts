@@ -8,6 +8,9 @@ import { User } from "src/models/users/user.model";
 @Injectable()
 export class UserRepository {
     constructor() { }
+    async getUserById(id: string): Promise<User> {
+        return await User.findByPk(id)
+    }
     async findByUserName(userName: string): Promise<User> {
         return await User.findOne({ where: { userName: userName } });
     }
@@ -45,7 +48,7 @@ export class UserRepository {
     async createUserInfo(userId: string, userInfo: SignUpUserInfoDto, transaction: Transaction) {
         return await UserInfo.create({
             birthDay: userInfo.birth_day,
-            user: userId,
+            userId: userId,
             fullName: userInfo.full_name,
             phone: userInfo.phone
         }, { transaction });

@@ -1,7 +1,6 @@
 import { Column, Model, Table, DataType, HasMany, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import { User } from '../users/user.model';
-import { Product } from '../products/product.model';
 import Reply from './reply.model';
 import ProductComment from './product-comment.model';
 

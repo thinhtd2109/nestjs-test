@@ -9,13 +9,13 @@ export class ProductValidateMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     const body = req.body as ProductInputDto;
     const obj = {
-      brand_id: 'Sản phẩm phải có thương hiệu.',
-      category_id: 'Sản phẩm phải có danh mục.',
+      brand_code: 'Sản phẩm phải có thương hiệu.',
+      category_code: 'Sản phẩm phải có danh mục.',
       code: 'Mã sản phẩm không hợp lệ.'
     }
     const validated = validateBody(body, obj);
     if (!validated.status) {
-      return validated;
+      return res.send(validated);
     }
     next();
   }
