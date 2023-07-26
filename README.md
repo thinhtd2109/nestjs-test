@@ -57,7 +57,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/auth/signin`
 - **Method:** `POST`
 
-**Definition**
+**Definition:**
 ### 1. Trường 1:
 
 - **Tên trường**: username
@@ -89,7 +89,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/auth/signup`
 - **Method:** `POST`
 
-**Definition**
+**Definition:**
 ### 1. Trường 1:
 
 - **Tên trường**: username
@@ -447,7 +447,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/product/insert`
 - **Method:** `POST`
 
-**Definition**
+**Definition:**
 ### 1. Trường 1:
 
 - **Tên trường**: code
@@ -523,7 +523,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/product/comment`
 - **Method:** `POST`
 
-**Definition**
+**Definition:**
 ### 1. Trường 1:
 
 - **Tên trường**: product_code
@@ -571,7 +571,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 
 ### 6. Trả lời bình luận
 - **Endpoint:** `/product/comment`
-- **Method:** `POST`**Definition**
+- **Method:** `POST`
+
+**Definition:**
 ### 1. Trường 1:
 
 - **Tên trường**: product_code
