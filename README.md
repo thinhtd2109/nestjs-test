@@ -12,6 +12,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 ## Yêu cầu hệ thống <a name="yeu-cau-he-thong"></a>
 
 - Node.js v14 trở lên.
+- NestJS CLI
 
 ## Cài đặt <a name="cai-dat"></a>
 
