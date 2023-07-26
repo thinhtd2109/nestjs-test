@@ -15,7 +15,6 @@ export class ProductController {
     return await this.productService.insertProduct(data)
   }
   @Get(':code')
-  @UseGuards(AuthGuard)
   async getProductByCode(@Param('code') code: string) {
     return await this.productService.getProductByCode(code);
   }
