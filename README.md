@@ -57,6 +57,19 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/auth/signin`
 - **Method:** `POST`
 
+**Definition**
+### 1. Trường 1:
+
+- **Tên trường**: username
+- **Loại dữ liệu**: string
+- **Mô tả**: Tên tài khoản
+
+### 2. Trường 2:
+
+- **Tên trường**: password
+- **Loại dữ liệu**: string
+- **Mô tả**: Mật khẩu
+
 **Request:**
 ```json
 {
@@ -75,6 +88,43 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 ### 2. Đăng ký
 - **Endpoint:** `/auth/signup`
 - **Method:** `POST`
+
+**Definition**
+### 1. Trường 1:
+
+- **Tên trường**: username
+- **Loại dữ liệu**: string
+- **Mô tả**: Tên tài khoản
+
+### 2. Trường 2:
+
+- **Tên trường**: password
+- **Loại dữ liệu**: string
+- **Mô tả**: Mật khẩu
+
+### 3. Trường 3:
+
+- **Tên trường**: email
+- **Loại dữ liệu**: string
+- **Mô tả**: email
+
+### 4. Trường 4:
+
+- **Tên trường**: phone
+- **Loại dữ liệu**: string
+- **Mô tả**: Số điện thoại
+
+### 5. Trường 5:
+
+- **Tên trường**: full_name
+- **Loại dữ liệu**: string
+- **Mô tả**: Họ và tên
+
+### 6. Trường 6:
+
+- **Tên trường**: birth_day
+- **Loại dữ liệu**: string
+- **Mô tả**: Ngày sinh
 
 **Request:**
 ```json
@@ -397,6 +447,43 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/product/insert`
 - **Method:** `POST`
 
+**Definition**
+### 1. Trường 1:
+
+- **Tên trường**: code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã sản phẩm
+
+### 2. Trường 2:
+
+- **Tên trường**: name
+- **Loại dữ liệu**: string
+- **Mô tả**: Tên sản phẩm
+
+### 3. Trường 3:
+
+- **Tên trường**: category_code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã danh mục
+
+### 4. Trường 4:
+
+- **Tên trường**: brand_code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã thương hiệu
+
+### 5. Trường 5:
+
+- **Tên trường**: description
+- **Loại dữ liệu**: string
+- **Mô tả**: Mô tả
+
+### 6. Trường 6:
+
+- **Tên trường**: price
+- **Loại dữ liệu**: string
+- **Mô tả**: Giá sản phẩm
+
 **Request**
 ```json
 {
@@ -436,6 +523,25 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Endpoint:** `/product/comment`
 - **Method:** `POST`
 
+**Definition**
+### 1. Trường 1:
+
+- **Tên trường**: product_code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã sản phẩm
+
+### 2. Trường 2:
+
+- **Tên trường**: comment_text
+- **Loại dữ liệu**: string
+- **Mô tả**: Bình luận
+
+### 3. Trường 3:
+
+- **Tên trường**: user_id
+- **Loại dữ liệu**: uuid
+- **Mô tả**: Mã người dùng
+
 **Request**
 ```json 
 {
@@ -465,7 +571,30 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 
 ### 6. Trả lời bình luận
 - **Endpoint:** `/product/comment`
-- **Method:** `POST`
+- **Method:** `POST`**Definition**
+### 1. Trường 1:
+
+- **Tên trường**: product_code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã sản phẩm
+
+### 2. Trường 2:
+
+- **Tên trường**: comment_text
+- **Loại dữ liệu**: string
+- **Mô tả**: Bình luận
+
+### 3. Trường 3:
+
+- **Tên trường**: user_id
+- **Loại dữ liệu**: uuid
+- **Mô tả**: Mã người dùng
+
+### 4. Trường 4:
+
+- **Tên trường**: reply_comment
+- **Loại dữ liệu**: uuid
+- **Mô tả**: Trả lời bình luận
 
 **Request**
 ```json
