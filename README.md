@@ -368,3 +368,5 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 }
 ```
 
+## Hỗ trợ <a name="ho-tro"></a>
+Nếu bạn gặp vấn đề hoặc cần trợ giúp, vui lòng mở một issue tại [đường dẫn issue của dự án].
