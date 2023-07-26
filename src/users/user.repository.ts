@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { SignUpDto, SignUpUserInfoDto } from "dto/user.dto";
+import { SignUpDto, SignUpUserInfoDto } from "dto/users/user.dto";
 import * as moment from "moment";
 import { Transaction } from "sequelize";
 import { UserInfo } from "src/models/users/user-info.model";

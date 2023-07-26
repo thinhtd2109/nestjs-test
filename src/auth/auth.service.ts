@@ -4,7 +4,7 @@ import { UsersService } from 'src/users/user.service';
 import { JwtService } from '@nestjs/jwt';
 
 import * as  _ from 'lodash';
-import { SignUpDto } from 'dto/user.dto';
+import { SignUpDto } from 'dto/users/user.dto';
 import sequelize from 'src/core/database/database.root';
 
 import { validateSignIn } from 'src/core/validate/user.validate';
