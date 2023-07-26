@@ -60,7 +60,12 @@ export class ProductService {
   }
 
   async getProductByCode(code: string) {
-    return await this.productRepository.getProductBy({ code });
+    const result = await this.productRepository.getProductBy({ code });
+    return {
+      status: true,
+      error: null,
+      data: result
+    }
   }
 
   async commentProduct(data: CommentInputDto) {
