@@ -20,7 +20,7 @@ export class UserValidateMiddleware implements NestMiddleware {
     }
     const validated = validateBody(body, object);
     if (!validated.status) {
-      return validated;
+      return res.send(validated);
     }
     next();
   }
