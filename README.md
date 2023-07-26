@@ -337,7 +337,6 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 ### 5. Trả lời bình luận
 - **Endpoint:** `/product/comment`
 - **Method:** `POST`
-- **Note:**
 
 **Request**
 ```json
