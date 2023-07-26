@@ -127,7 +127,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 }
 ```
 
-### 3. Tạo sản phẩm
+### 3. Lấy sản phẩm theo mã
 - **Endpoint:** `/product/:code`
 - **Method:** `GET`
 
