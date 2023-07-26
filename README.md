@@ -56,9 +56,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 
 - **Endpoint:** `/auth/signin`
 - **Method:** `POST`
+- **Lưu ý:** Mật khẩu sẽ do FE tự hash và gửi xuống server, đây chỉ là ví dụ.
 
 **Response:**
-**Lưu ý:** mật khẩu sẽ do FRONTEND HASH và gửi xuống server, đây chỉ là ví dụ
 ```json
 [
     {
