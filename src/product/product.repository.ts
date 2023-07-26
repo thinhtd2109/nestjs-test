@@ -35,9 +35,11 @@ export class ProductRepository {
                     },
                     {
                         model: ProductComment,
+                        where: { deleted: false },
                         include: [
                             {
                                 model: Comment,
+                                where: { deleted: false },
                                 include: [
                                     {
                                         model: User,
@@ -47,6 +49,7 @@ export class ProductRepository {
                                     },
                                     {
                                         model: Reply,
+                                        where: { deleted: false },
                                         include: [{
                                             model: User,
                                             include: [{

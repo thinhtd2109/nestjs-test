@@ -8,6 +8,7 @@ import { SignUpDto } from 'dto/users/user.dto';
 import sequelize from 'src/core/database/database.root';
 
 import { validateSignIn } from 'src/core/validate/user.validate';
+import { JwtPayload } from 'jsonwebtoken';
 
 @Injectable()
 export class AuthService {
@@ -93,5 +94,15 @@ export class AuthService {
             await transaction.rollback();
             throw error;
         }
+    }
+
+    async createToken(username: string, sub: string) {
+        const payload: JwtPayload = { username, sub };
+        return this.jwtService.sign(payload);
+    }
+
+    async validateUser(payload: JwtPayload) {
+
+        return null;
     }
 }

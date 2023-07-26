@@ -18,4 +18,22 @@ export class CommentRepository {
     async insertReplyComment(data: CommentInsertDto, transaction: Transaction) {
         return await Reply.create({ commentText: data.comment_text, commentId: data.reply_comment, createdBy: data.user_id }, { transaction })
     }
+
+    async deleteComment(id: string, transaction: Transaction) {
+        return await Comment.update({
+            deleted: true
+        }, { where: { id: id }, transaction: transaction })
+    }
+    async deleteReplyComment(id: string, transaction: Transaction) {
+        return await Comment.update({
+            deleted: true
+        }, { where: { id: id }, transaction: transaction })
+    }
+    async getCommentById(id: string): Promise<Comment> {
+        return await Comment.findOne({ where: { id: id } })
+    }
+
+    async getReplyCommentById(id: string): Promise<Reply> {
+        return await Reply.findOne({ where: { id: id } });
+    }
 }

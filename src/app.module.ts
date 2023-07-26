@@ -14,6 +14,8 @@ import { AuthController } from './auth/auth.controller';
 import { ProductValidateMiddleware } from './middleware/product.middleware';
 import { CommentValidateMiddleware } from './middleware/comment.middleware';
 import { UserValidateMiddleware } from './middleware/user.middleware';
+import { PassportModule } from '@nestjs/passport';
+import { JwtModule } from '@nestjs/jwt';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -21,6 +23,12 @@ import { UserValidateMiddleware } from './middleware/user.middleware';
     UserModule,
     ProductModule,
     AuthModule,
+    JwtModule.register({
+      global: true,
+      signOptions: { expiresIn: '1h' },
+      secret: process.env.secret_key
+    }),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
   controllers: [AppController, UsersController, AuthController],
   providers: [AppService, UsersService, UserRepository, AuthService],

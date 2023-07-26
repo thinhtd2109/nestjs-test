@@ -97,4 +97,26 @@ export class ProductService {
       throw error;
     }
   }
+  async deleteComment(id: string) {
+    const transaction = await sequelize.transaction();
+    const comment = await this.commentRepository.getCommentById(id);
+    const reply = await this.commentRepository.getReplyCommentById(id);
+    try {
+      if (!isEmpty(comment)) {
+        await this.commentRepository.deleteComment(comment.id, transaction);
+      } else {
+        await this.commentRepository.deleteReplyComment(reply.id, transaction);
+      }
+
+      await transaction.commit();
+      return {
+        status: true,
+        error: `Xóa thành công.`,
+        data: null
+      }
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
+    }
+  }
 }
