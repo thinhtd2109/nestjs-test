@@ -303,5 +303,68 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
   ]
 }
 ```
+### 4. Bình luận trên sản phẩm
+- **Endpoint:** `/product/comment`
+- **Method:** `POST`
 
+**Request**
+```json 
+{
+  "product_code": "UML100",
+  "comment_text": "Hello World.",
+  "user_id": "9fa27829-21df-4020-9b36-ec743f65a01b"
+}
+```
+
+**Response**
+```json 
+{
+  "status": true,
+  "data": {
+      "created": "2023-07-26T03:58:13.601Z",
+      "deleted": false,
+      "id": 4,
+      "productId": "7a424c47-351f-4de4-b881-63092945b463",
+      "commentId": "79e878da-20ec-4102-9670-87d45fffb3c8",
+      "updated": null,
+      "updatedBy": null,
+      "deletedBy": null
+  },
+  "error": null
+}
+```
+
+### 5. Trả lời bình luận
+- **Endpoint:** `/product/comment`
+- **Method:** `POST`
+- **Note:**
+
+**Request**
+```json
+{
+  "product_code": "UML100",
+  "comment_text": "Hello World.",
+  "user_id": "9fa27829-21df-4020-9b36-ec743f65a01b",
+  "reply_comment": "79e878da-20ec-4102-9670-87d45fffb3c8"
+}
+```
+
+**Response**
+```json
+{
+  "status": true,
+  "data": {
+      "id": "2ff99f51-ea3a-41a6-9d59-b0f8fd1ae858",
+      "created": "2023-07-26T04:07:00.023Z",
+      "deleted": false,
+      "commentText": "Hello World.",
+      "commentId": "79e878da-20ec-4102-9670-87d45fffb3c8",
+      "createdBy": "9fa27829-21df-4020-9b36-ec743f65a01b",
+      "updated": null,
+      "updatedBy": null,
+      "deletedBy": null
+  },
+  "error": null
+}
+```
 
