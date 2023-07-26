@@ -1,5 +1,10 @@
+import { isEmpty } from "../helper/user.helper";
+
 export const validateBody = (data: any, object: Object): any => {
   for (const property in data) {
+    if (isEmpty(object[property])) {
+      continue;
+    }
     if (typeof data[property] === 'object' && data[property] !== null && object[property]) {
       const innerResult = validateBody(data[property], object[property]);
       if (!innerResult.status) {

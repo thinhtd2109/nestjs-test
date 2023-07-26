@@ -14,6 +14,7 @@ export class ProductValidateMiddleware implements NestMiddleware {
       code: 'Mã sản phẩm không hợp lệ.'
     }
     const validated = validateBody(body, obj);
+    console.log(validated)
     if (!validated.status) {
       return res.send(validated);
     }
