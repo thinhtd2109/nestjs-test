@@ -501,7 +501,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 ```
 
 **Headers**
-- `Authorization`: Bearer <Token>
+- `Authorization`: Bearer {{Token}}
 
 **Response**
 ```json
@@ -550,8 +550,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Mô tả**: Mã người dùng
 
 **Headers**
-- `Authorization`: Bearer <Token>
-
+- `Authorization`: Bearer {{Token}}
 **Request**
 ```json 
 {
@@ -609,7 +608,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Mô tả**: Trả lời bình luận
 
 **Headers**
-- `Authorization`: Bearer <Token>
+- `Authorization`: Bearer {{Token}}
 
 **Request**
 ```json
