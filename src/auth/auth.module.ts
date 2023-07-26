@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { UsersService } from 'src/users/user.service';
 import { UserRepository } from 'src/users/user.repository';
 import { JwtModule } from '@nestjs/jwt';
+import moment from 'moment';
 
 
 @Module({
@@ -14,6 +15,6 @@ import { JwtModule } from '@nestjs/jwt';
     })
   ],
   controllers: [AuthController],
-  providers: [AuthService, UsersService, UserRepository]
+  providers: [AuthService, UsersService, UserRepository, { provide: 'MomentWrapper', useValue: moment },]
 })
 export class AuthModule { }

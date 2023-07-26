@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UsersService } from './user.service';
 import { UsersController } from './users.controller';
-import moment from 'moment';
+import * as moment from 'moment';
 import { UserRepository } from './user.repository';
 
 @Module({
@@ -9,4 +9,4 @@ import { UserRepository } from './user.repository';
   providers: [UsersService, { provide: 'MomentWrapper', useValue: moment }, UserRepository],
   exports: [UsersService, UserRepository]
 })
-export class UserModule { }
+export class UserModule { } 

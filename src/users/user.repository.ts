@@ -1,5 +1,6 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 import { SignUpDto, SignUpUserInfoDto } from "dto/user.dto";
+import * as moment from "moment";
 import { Transaction } from "sequelize";
 import { UserInfo } from "src/models/users/user-info.model";
 import { User } from "src/models/users/user.model";
@@ -10,10 +11,14 @@ export class UserRepository {
     async findByUserName(userName: string): Promise<User> {
         return await User.findOne({ where: { userName: userName } });
     }
-    async updateUserCountSignIn(count: number, id: string) {
+    async updateLoginDate(id: string, transaction: Transaction) {
+        return await User.update({ lastLogin: moment() }, { where: { id: id }, transaction })
+    }
+    async updateUserCountSignIn(count: number, id: string, transaction: Transaction) {
         return await User.update({
             qty_fail: count
         }, {
+            transaction,
             where: {
                 id: id
             }
