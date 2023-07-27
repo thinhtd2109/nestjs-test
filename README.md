@@ -638,6 +638,114 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
   "error": null
 }
 ```
+### 7. Lấy danh sách sản phẩm
+- **Endpoint:** `/product`
+- **Method:** `GET`
+
+**Definition:**
+#### 1. Trường 1:
+
+- **Tên trường**: code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã sản phẩm
+
+#### 2. Trường 2:
+
+- **Tên trường**: name
+- **Loại dữ liệu**: string
+- **Mô tả**: Tên sản phẩm
+
+#### 3. Trường 3:
+
+- **Tên trường**: brand_id
+- **Loại dữ liệu**: number
+- **Mô tả**: Mã thương hiệu
+
+#### 4. Trường 4:
+
+- **Tên trường**: category_id
+- **Loại dữ liệu**: number
+- **Mô tả**: Mã danh mục
+
+**Request**
+```json
+{
+    "code": "UML001",
+    "search_string": "IPHONE",
+    "category_id": 2,
+    "brand_id": 2
+}
+```
+
+**Response**
+```json
+{
+    "status": true,
+    "error": null,
+    "data": [
+        {
+            "id": "32c61659-1026-45df-a3c7-1578a98f784c",
+            "code": "UML202",
+            "name": "IPHONE 12 PROMAX",
+            "price": 15000000,
+            "description": "",
+            "brandId": 2,
+            "categoryId": 2,
+            "created": "2023-07-26T04:24:31.782Z",
+            "deleted": false,
+            "updated": null,
+            "createdBy": null,
+            "updatedBy": null,
+            "deletedBy": null
+        },
+        {
+            "id": "4246c3a8-9b63-42f8-a2e4-4f1a0148b52e",
+            "code": "UML200",
+            "name": "IPHONE 12 PROMAX",
+            "price": 15000000,
+            "description": "",
+            "brandId": 2,
+            "categoryId": 2,
+            "created": "2023-07-26T04:20:29.658Z",
+            "deleted": false,
+            "updated": null,
+            "createdBy": null,
+            "updatedBy": null,
+            "deletedBy": null
+        },
+        {
+            "id": "4deb884c-263b-4cf6-8d7f-d87552dc57d7",
+            "code": "UML201",
+            "name": "IPHONE 12 PROMAX",
+            "price": 15000000,
+            "description": "",
+            "brandId": 2,
+            "categoryId": 2,
+            "created": "2023-07-26T04:24:01.362Z",
+            "deleted": false,
+            "updated": null,
+            "createdBy": null,
+            "updatedBy": null,
+            "deletedBy": null
+        },
+        {
+            "id": "7a424c47-351f-4de4-b881-63092945b463",
+            "code": "UML100",
+            "name": "IPHONE 14 PROMAX",
+            "price": 10000000,
+            "description": "",
+            "brandId": 2,
+            "categoryId": 2,
+            "created": "2023-07-25T13:45:08.617Z",
+            "deleted": false,
+            "updated": null,
+            "createdBy": null,
+            "updatedBy": null,
+            "deletedBy": null
+        }
+    ]
+}
+```
 
 ## Hỗ trợ <a name="ho-tro"></a>
 Nếu bạn gặp vấn đề hoặc cần trợ giúp, vui lòng mở một issue tại https://github.com/thinhtd2109/nestjs-test.

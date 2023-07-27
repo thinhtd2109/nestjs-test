@@ -34,7 +34,12 @@ export class ProductService {
   }
 
   async getProductBy(where) {
-    return await this.productRepository.getProductsBy(where);
+    const results = await this.productRepository.getProductsBy(where);
+    return {
+      status: true,
+      error: null,
+      data: results
+    };
   }
 
   async insertProduct(data: ProductInputDto) {
