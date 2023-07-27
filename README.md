@@ -801,6 +801,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Loại dữ liệu**: boolean
 - **Mô tả**: Cờ đánh dấu thêm/sửa
 
+**Headers**
+- `Authorization`: Bearer {{Token}}
+
 **Request**
 ```json
 {
@@ -850,6 +853,9 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Tên trường**: id
 - **Loại dữ liệu**: uuid
 - **Mô tả**: Mã bình luận 
+
+**Headers**
+- `Authorization`: Bearer {{Token}}
 
 **Request**
 ```json
