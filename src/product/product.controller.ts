@@ -32,9 +32,9 @@ export class ProductController {
     return await this.productService.commentProduct(data);
   }
 
-  @Post('comment/delete/:id')
+  @Post('comment/delete')
   @UseGuards(AuthGuard)
-  async deleteComment(@Param('id') id: string) {
-    return await this.productService.deleteComment(id);
+  async deleteComment(@Body() body: any) {
+    return await this.productService.deleteComment(body?.id);
   }
 }

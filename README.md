@@ -840,5 +840,35 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 }
 ```
 
+### 9. Xóa bình luận
+- **Endpoint:** `/product/comment/delete`
+- **Method:** `POST`
+
+**Definition:**
+#### 1. Trường 1:
+
+- **Tên trường**: id
+- **Loại dữ liệu**: uuid
+- **Mô tả**: Mã bình luận 
+
+**Request**
+```json
+{
+    "id": "2ff99f51-ea3a-41a6-9d59-b0f8fd1ae858"
+}
+```
+
+**Headers**
+- `Authorization`: Bearer {{Token}}
+
+**Response**
+```json
+{
+    "status": true,
+    "error": "Xóa thành công.",
+    "data": null
+}
+```
+
 ## Hỗ trợ <a name="ho-tro"></a>
 Nếu bạn gặp vấn đề hoặc cần trợ giúp, vui lòng mở một issue tại https://github.com/thinhtd2109/nestjs-test.
