@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { UsersService } from 'src/users/user.service';
-import { UserRepository } from 'src/users/user.repository';
+import { UsersService } from 'src/modules/users/user.service';
+import { UserRepository } from 'src/modules/users/user.repository';
 import moment from 'moment';
 @Module({
   controllers: [AuthController],

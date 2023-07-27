@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from 'src/users/user.repository';
-import { UsersService } from 'src/users/user.service';
+import { UserRepository } from 'src/modules/users/user.repository';
+import { UsersService } from 'src/modules/users/user.service';
 import { JwtService } from '@nestjs/jwt';
 
 import * as  _ from 'lodash';

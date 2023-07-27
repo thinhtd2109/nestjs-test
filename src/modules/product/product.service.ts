@@ -2,15 +2,15 @@ import { Injectable, Post } from '@nestjs/common';
 import { ProductInputDto, ProductInsertDto } from 'dto/products/product.dto';
 import { ProductRepository } from './product.repository';
 import sequelize from 'src/core/database/database.root';
-import { CategoryRepository } from 'src/services/category.repository';
-import { BrandRepository } from 'src/services/brand.repository';
+import { BrandRepository } from 'src/services/providers/brand.repository';
 import { validateCommentProduct, validateMasterDataInsertProduct } from 'src/core/validate/product.validate';
 import Category from 'src/models/master/category.model';
 import Brand from 'src/models/master/brand.model';
 import { CommentInputDto } from 'dto/comments/comment.dto';
-import { UserRepository } from 'src/users/user.repository';
-import { CommentRepository } from 'src/services/comment.repository';
+import { UserRepository } from 'src/modules/users/user.repository';
 import { isEmpty } from 'src/core/helper/user.helper';
+import { CategoryRepository } from 'src/services/providers/category.repository';
+import { CommentRepository } from 'src/services/providers/comment.repository';
 
 @Injectable()
 export class ProductService {
