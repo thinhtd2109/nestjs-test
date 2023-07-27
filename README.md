@@ -494,6 +494,10 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Loại dữ liệu**: boolean
 - **Mô tả**: Cờ đánh dấu thêm/sửa
 
+**Headers**
+- `Authorization`: Bearer {{Token}}
+
+
 **Request**
 ```json
 {
@@ -506,9 +510,6 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
     "is_insert": false
 }
 ```
-
-**Headers**
-- `Authorization`: Bearer {{Token}}
 
 **Response**
 ```json
@@ -558,6 +559,7 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 
 **Headers**
 - `Authorization`: Bearer {{Token}}
+
 **Request**
 ```json 
 {
@@ -816,9 +818,6 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
     "is_insert": false
 }
 ```
-
-**Headers**
-- `Authorization`: Bearer {{Token}}
 
 **Response**
 ```json
