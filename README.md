@@ -488,15 +488,22 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
 - **Loại dữ liệu**: string
 - **Mô tả**: Giá sản phẩm
 
+#### 6. Trường 7:
+
+- **Tên trường**: is_insert
+- **Loại dữ liệu**: boolean
+- **Mô tả**: Cờ đánh dấu thêm/sửa
+
 **Request**
 ```json
 {
-  "code": "UML202",
-  "name": "IPHONE 12 PROMAX",
-  "category_code": "IPH",
-  "brand_code": "TGDD",
-  "description": "",
-  "price": 15000000
+    "code": "UML202",
+    "name": "IPHONE 12 PROMAX",
+    "category_code": "IPH",
+    "brand_code": "TGDD",
+    "description": "",
+    "price": 15000000,
+    "is_insert": false
 }
 ```
 
@@ -744,6 +751,92 @@ API này hỗ trợ các hoạt động như: quản lý sản phẩm, bình lu�
             "deletedBy": null
         }
     ]
+}
+```
+
+### 8. Sửa sản phẩm
+- **Endpoint:** `/product/edit`
+- **Method:** `POST`
+
+**Definition:**
+#### 1. Trường 1:
+
+- **Tên trường**: code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã sản phẩm
+
+#### 2. Trường 2:
+
+- **Tên trường**: name
+- **Loại dữ liệu**: string
+- **Mô tả**: Tên sản phẩm
+
+#### 3. Trường 3:
+
+- **Tên trường**: category_code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã danh mục
+
+#### 4. Trường 4:
+
+- **Tên trường**: brand_code
+- **Loại dữ liệu**: string
+- **Mô tả**: Mã thương hiệu
+
+#### 5. Trường 5:
+
+- **Tên trường**: description
+- **Loại dữ liệu**: string
+- **Mô tả**: Mô tả
+
+#### 6. Trường 6:
+
+- **Tên trường**: price
+- **Loại dữ liệu**: string
+- **Mô tả**: Giá sản phẩm
+
+#### 6. Trường 7:
+
+- **Tên trường**: is_insert
+- **Loại dữ liệu**: boolean
+- **Mô tả**: Cờ đánh dấu thêm/sửa
+
+**Request**
+```json
+{
+    "code": "UML202",
+    "name": "IPHONE 12 PROMAX",
+    "category_code": "IPH",
+    "brand_code": "TGDD",
+    "description": "",
+    "price": 15000000,
+    "is_insert": false
+}
+```
+
+**Headers**
+- `Authorization`: Bearer {{Token}}
+
+**Response**
+```json
+{
+    "status": true,
+    "error": null,
+    "data": {
+        "id": "32c61659-1026-45df-a3c7-1578a98f784c",
+        "created": "2023-07-26T04:24:31.782Z",
+        "deleted": false,
+        "code": "UML202",
+        "name": "IPHONE 12 PROMAX",
+        "categoryId": 2,
+        "brandId": 2,
+        "description": "",
+        "price": 15000000,
+        "updated": null,
+        "createdBy": null,
+        "updatedBy": null,
+        "deletedBy": null
+    }
 }
 ```
 

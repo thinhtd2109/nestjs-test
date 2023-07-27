@@ -12,7 +12,11 @@ export class ProductController {
   @Post('insert')
   @UseGuards(AuthGuard)
   async insertProduct(@Body() data: ProductInputDto) {
-    return await this.productService.insertProduct(data)
+    return await this.productService.upsertProduct(data)
+  }
+  @Post('edit')
+  async editProduct(@Body() data: ProductInputDto) {
+    return await this.productService.upsertProduct(data);
   }
   @Get()
   async getProductBy(@Body() where: any) {

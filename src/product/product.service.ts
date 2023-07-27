@@ -42,13 +42,13 @@ export class ProductService {
     };
   }
 
-  async insertProduct(data: ProductInputDto) {
+  async upsertProduct(data: ProductInputDto) {
     const transaction = await sequelize.transaction();
     try {
       const product = await this.productRepository.getProductBy({ code: data.code });
       const category = await this.categoryRepository.getCategoryByCode(data.category_code);
       const brand = await this.brandRepository.getBrandByCode(data.brand_code);
-      const validated = validateMasterDataInsertProduct({ product, category, brand });
+      const validated = validateMasterDataInsertProduct({ product, category, brand, is_insert: data.is_insert });
       if (!validated.status) {
         return validated;
       };

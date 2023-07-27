@@ -23,7 +23,7 @@ export const validateCommentProduct = ({ product, user }) => {
     }
 }
 
-export const validateMasterDataInsertProduct = ({ category, brand, product }) => {
+export const validateMasterDataInsertProduct = ({ category, brand, product, is_insert = false }) => {
     if (isEmpty(brand)) {
         return {
             status: false,
@@ -39,7 +39,7 @@ export const validateMasterDataInsertProduct = ({ category, brand, product }) =>
         }
     }
 
-    if (product) {
+    if (product && is_insert) {
         return {
             status: false,
             error: `Sản phẩm đã tồn tại, kiểm tra lại.`,

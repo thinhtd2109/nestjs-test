@@ -5,6 +5,7 @@ export class ProductInputDto {
   description: string;
   brand_code: string;
   category_code: string;
+  is_insert: boolean;
 }
 
 export class ProductInsertDto {
