@@ -33,6 +33,10 @@ export class ProductService {
     }
   }
 
+  async getProductBy(where) {
+    return await this.productRepository.getProductsBy(where);
+  }
+
   async insertProduct(data: ProductInputDto) {
     const transaction = await sequelize.transaction();
     try {

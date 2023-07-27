@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { ProductFilterDto, ProductInsertDto } from "dto/products/product.dto";
+import { Op } from "sequelize";
 import { Transaction } from "sequelize";
 import { isEmpty } from "src/core/helper/user.helper";
 import Comment from "src/models/comments/comment.model";
@@ -76,6 +77,31 @@ export class ProductRepository {
             transaction,
             returning: true,
             conflictFields: ['code']
+        })
+    }
+    async getProductsBy(data: any): Promise<Product[]> {
+        let where = { deleted: false };
+
+        if (!isEmpty(data.code)) {
+            where['code'] = data.code;
+        };
+
+        if (!isEmpty(data.category_id)) {
+            where['categoryId'] = data.category_id;
+        }
+
+        if (!isEmpty(data.brand_id)) {
+            where['brandId'] = data.brand_id;
+        }
+
+        if (!isEmpty(data.search_string)) {
+            where['name'] = {
+                [Op.iLike]: `%${data.search_string}%`
+            }
+        }
+
+        return await Product.findAll({
+            where: where
         })
     }
 }

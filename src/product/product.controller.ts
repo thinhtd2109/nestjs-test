@@ -14,6 +14,10 @@ export class ProductController {
   async insertProduct(@Body() data: ProductInputDto) {
     return await this.productService.insertProduct(data)
   }
+  @Get()
+  async getProductBy(@Body() where: any) {
+    return await this.productService.getProductBy(where);
+  }
   @Get(':code')
   async getProductByCode(@Param('code') code: string) {
     return await this.productService.getProductByCode(code);
